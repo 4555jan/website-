@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,19 +150,32 @@
       color: #b3005e;
     }
 
-    .product-grid {
+    .product-slider-container {
+      position: relative;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+
+    .product-slider {
       display: flex;
-      flex-wrap: wrap;
       gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 10px;
     }
 
     .product-card {
-      flex: 1 1 calc(33.333% - 20px);
+      flex: 0 0 auto;
+      width: 250px;
+      height: 380px;
       background: white;
-      border-radius: 12px;
+      border-radius: 120px 120px 0 0;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .product-card:hover {
@@ -170,12 +184,14 @@
 
     .product-card img {
       width: 100%;
-      height: 250px;
+      height: 75%;
       object-fit: cover;
+      border-radius: 120px 120px 0 0;
     }
 
     .product-card .info {
       padding: 15px;
+      text-align: center;
     }
 
     .product-card .info h3 {
@@ -187,6 +203,31 @@
     .product-card .info p {
       font-size: 0.9rem;
       color: #555;
+    }
+
+    .product-slider-button {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      background-color: rgba(255,255,255,0.8);
+      border: none;
+      padding: 10px;
+      font-size: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .product-slider-button:hover {
+      background: #fff;
+    }
+
+    .product-slider-button.prev {
+      left: 0;
+    }
+
+    .product-slider-button.next {
+      right: 0;
     }
 
     footer {
@@ -249,7 +290,7 @@
     @media (max-width: 768px) {
       nav { display: none; }
       .hamburger { display: flex; }
-      .product-card { flex: 1 1 100%; }
+      .product-card { width: 80%; }
       .hero-overlay h1 { font-size: 2rem; }
       .hero-overlay p { font-size: 1rem; }
     }
@@ -311,35 +352,59 @@
 
     <section id="products" class="page">
       <h2>Our Dresses</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="pic1.png" alt="Dress 1">
-          <div class="info">
-            <h3>Pink Festive Kurti</h3>
-            <p>₹1,299 – A blend of grace & comfort.</p>
+      <div class="product-slider-container">
+        <button class="product-slider-button prev" onclick="scrollProducts(-1)">&#10094;</button>
+        <div class="product-slider" id="productSlider">
+          <div class="product-card">
+            <img src="pic1.png" alt="Dress 1">
+            <div class="info">
+              <h3>Pink Festive Kurti</h3>
+              <p>₹1,299 – A blend of grace & comfort.</p>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="pic2.png" alt="Dress 2">
+            <div class="info">
+              <h3>Floral Chikankari</h3>
+              <p>₹1,899 – Subtle luxury in every stitch.</p>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="pic2.jpg" alt="Dress 3">
+            <div class="info">
+              <h3>Indigo Co-ord Set</h3>
+              <p>₹2,499 – Bold, breezy & beautiful.</p>
+            </div>
+          </div>
+            <div class="product-card">
+            <img src="pic3.jpg" alt="Dress 3">
+            <div class="info">
+              <h3>Indigo Co-ord Set</h3>
+              <p>₹2,499 – Bold, breezy & beautiful.</p>
+            </div>
+          </div>
+            <div class="product-card">
+            <img src="pic4.jpg" alt="Dress 3">
+            <div class="info">
+              <h3>Indigo Co-ord Set</h3>
+              <p>₹2,499 – Bold, breezy & beautiful.</p>
+            </div>
+          </div>
+            <div class="product-card">
+            <img src="pic6.jpg" alt="Dress 3">
+            <div class="info">
+              <h3>Indigo Co-ord Set</h3>
+              <p>₹2,499 – Bold, breezy & beautiful.</p>
+            </div>
           </div>
         </div>
-        <div class="product-card">
-          <img src="pic2.png" alt="Dress 2">
-          <div class="info">
-            <h3>Floral Chikankari</h3>
-            <p>₹1,899 – Subtle luxury in every stitch.</p>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="pic3.png" alt="Dress 3">
-          <div class="info">
-            <h3>Indigo Co-ord Set</h3>
-            <p>₹2,499 – Bold, breezy & beautiful.</p>
-          </div>
-        </div>
+        <button class="product-slider-button next" onclick="scrollProducts(1)">&#10095;</button>
       </div>
     </section>
 
     <section id="cart" class="page">
       <h2>Your Cart</h2>
       <div style="text-align: center; margin-top: 20px;">
-       
         <p style="font-size: 1.1rem; color: #444;">Your cart is empty... but your wardrobe doesn't have to be 🛍️</p>
         <button onclick="showPage('products')" style="margin-top: 20px; padding: 10px 20px; background-color: #b3005e; color: white; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer;">Shop Now</button>
       </div>
@@ -348,9 +413,9 @@
     <section id="login" class="page">
       <h2>Login to Naari</h2>
       <div style="max-width: 400px; margin: 30px auto; padding: 30px; background: #fff0f5; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-        <label style="display: block; margin-bottom: 10px; font-weight: 600;">Email</label>
+        <label>Email</label>
         <input type="email" placeholder="you@example.com" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px;">
-        <label style="display: block; margin-bottom: 10px; font-weight: 600;">Password</label>
+        <label>Password</label>
         <input type="password" placeholder="••••••••" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px;">
         <button style="width: 100%; padding: 12px; background-color: #b3005e; color: white; border: none; border-radius: 6px; font-size: 1rem;">Login</button>
         <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">Don't have an account? <a href="#" style="color: #b3005e;">Sign up</a></p>
@@ -363,30 +428,33 @@
   </footer>
 
   <script>
-    function showPage(id) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
-    function toggleMobileMenu() {
-      document.getElementById("mobileNav").classList.toggle("show");
-    }
+  function toggleMobileMenu() {
+    document.getElementById("mobileNav").classList.toggle("show");
+  }
 
-    // Manual carousel script
-    const track = document.getElementById("carouselTrack");
-    const slides = track.children;
-    let index = 0;
+  const track = document.getElementById("carouselTrack");
+  const slides = track.children;
+  let index = 0;
 
-    function moveSlide(step) {
-      index = (index + step + slides.length) % slides.length;
-      const width = slides[0].clientWidth;
-      track.style.transform = `translateX(-${index * width}px)`;
-    }
+  function moveSlide(step) {
+    index = (index + step + slides.length) % slides.length;
+    const width = slides[0].clientWidth;
+    track.style.transform = `translateX(-${index * width}px)`;
+  }
 
-    window.addEventListener('resize', () => {
-      moveSlide(0); // realign on resize
-    });
-  </script>
+  window.addEventListener('resize', () => moveSlide(0));
+
+  function scrollProducts(direction) {
+    const slider = document.getElementById("productSlider");
+    const scrollAmount = slider.querySelector(".product-card").offsetWidth + 20;
+    slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+</script>
 </body>
 </html>
