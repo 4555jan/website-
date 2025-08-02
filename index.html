@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Naari - Elegant Fashion</title>
   <style>
     * {
@@ -14,8 +14,8 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #fdfaf6;
-      color: #111;
+      background-color: #F5F5DC;
+      color: #FF0000;
       overflow-x: hidden;
     }
 
@@ -24,7 +24,7 @@
       width: 100%;
       top: 0;
       z-index: 100;
-      background: rgba(250, 170, 170, 0.8);
+      background: beige;
       backdrop-filter: blur(8px);
       display: flex;
       justify-content: space-between;
@@ -42,7 +42,7 @@
     }
 
     nav a {
-      color: #111;
+      color: #8f030384;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
@@ -74,7 +74,7 @@
       right: 20px;
       background: white;
       border-radius: 8px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
       padding: 15px;
       z-index: 99;
     }
@@ -110,7 +110,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(to bottom, rgba(250, 170, 170, 0.6), rgba(255,255,255,0.6));
+      background: linear-gradient(to bottom, rgba(250, 170, 170, 0.6), rgba(255, 255, 255, 0.6));
       display: flex;
       justify-content: center;
       align-items: center;
@@ -171,7 +171,7 @@
       background: white;
       border-radius: 120px 120px 0 0;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
@@ -209,7 +209,7 @@
       position: absolute;
       top: 40%;
       transform: translateY(-50%);
-      background-color: rgba(255,255,255,0.8);
+      background-color: rgba(255, 255, 255, 0.8);
       border: none;
       padding: 10px;
       font-size: 2rem;
@@ -266,7 +266,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(255,255,255,0.7);
+      background-color: rgba(255, 255, 255, 0.7);
       border: none;
       padding: 10px;
       cursor: pointer;
@@ -288,33 +288,52 @@
     }
 
     @media (max-width: 768px) {
-      nav { display: none; }
-      .hamburger { display: flex; }
-      .product-card { width: 80%; }
-      .hero-overlay h1 { font-size: 2rem; }
-      .hero-overlay p { font-size: 1rem; }
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .product-card {
+        width: 80%;
+      }
+
+      .hero-overlay h1 {
+        font-size: 2rem;
+      }
+
+      .hero-overlay p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <header>
     <div class="logo">
-      <img src="narii1.jpg" alt="Naari Logo">
+      <img style="height: 77px;" src="narii1-removebg-preview.png" alt="Naari Logo">
     </div>
     <nav>
       <a href="#" onclick="showPage('home')">Home</a>
       <a href="#" onclick="showPage('products')">Products</a>
       <a href="#" onclick="showPage('cart')">Cart</a>
       <a href="#" onclick="showPage('login')">Login</a>
+      <a href="#" onclick="showPage('about')">About</a>
     </nav>
     <div class="hamburger" onclick="toggleMobileMenu()">
-      <div></div><div></div><div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
     <div class="mobile-nav" id="mobileNav">
       <a href="#" onclick="showPage('home'); toggleMobileMenu()">Home</a>
       <a href="#" onclick="showPage('products'); toggleMobileMenu()">Products</a>
       <a href="#" onclick="showPage('cart'); toggleMobileMenu()">Cart</a>
+      <a href="#" onclick="showPage('about'); toggleMobileMenu()">About</a>
       <a href="#" onclick="showPage('login'); toggleMobileMenu()">Login</a>
     </div>
   </header>
@@ -332,7 +351,8 @@
   <main>
     <section id="home" class="page active">
       <h2>Welcome to Naari</h2>
-      <p style="margin-bottom: 20px;">Naari is where strength meets style. Discover elegant ethnic and fusion wear designed to empower every woman.</p>
+      <p style="margin-bottom: 20px;">Naari is where strength meets style. Discover elegant ethnic and fusion wear
+        designed to empower every woman.</p>
 
       <div class="carousel">
         <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
@@ -346,7 +366,9 @@
       </div>
 
       <div style="margin-top: 30px;">
-        <button onclick="showPage('products')" style="padding: 12px 24px; background-color: #b3005e; color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">Browse Collection</button>
+        <button onclick="showPage('products')"
+          style="padding: 12px 24px; background-color: #b3005e; color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">Browse
+          Collection</button>
       </div>
     </section>
 
@@ -359,14 +381,14 @@
             <img src="pic1.png" alt="Dress 1">
             <div class="info">
               <h3>Pink Festive Kurti</h3>
-              <p>₹1,299 – A blend of grace & comfort.</p>
+              <p>₹599 – A blend of grace & comfort.</p>
             </div>
           </div>
           <div class="product-card">
             <img src="pic2.png" alt="Dress 2">
             <div class="info">
               <h3>Floral Chikankari</h3>
-              <p>₹1,899 – Subtle luxury in every stitch.</p>
+              <p>₹699– Subtle luxury in every stitch.</p>
             </div>
           </div>
           <div class="product-card">
@@ -376,21 +398,21 @@
               <p>₹2,499 – Bold, breezy & beautiful.</p>
             </div>
           </div>
-            <div class="product-card">
+          <div class="product-card">
             <img src="pic3.jpg" alt="Dress 3">
             <div class="info">
               <h3>Indigo Co-ord Set</h3>
               <p>₹2,499 – Bold, breezy & beautiful.</p>
             </div>
           </div>
-            <div class="product-card">
+          <div class="product-card">
             <img src="pic4.jpg" alt="Dress 3">
             <div class="info">
               <h3>Indigo Co-ord Set</h3>
               <p>₹2,499 – Bold, breezy & beautiful.</p>
             </div>
           </div>
-            <div class="product-card">
+          <div class="product-card">
             <img src="pic6.jpg" alt="Dress 3">
             <div class="info">
               <h3>Indigo Co-ord Set</h3>
@@ -401,24 +423,65 @@
         <button class="product-slider-button next" onclick="scrollProducts(1)">&#10095;</button>
       </div>
     </section>
+    <section id="about" class="page">
+      <h2>About Us</h2>
+      <div
+        style="max-width: 800px; margin: auto; padding: 20px; background: #fffaf0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+        <p style="font-size: 1.1rem; line-height: 1.6; color: #333;">
+          <strong>Naari</strong> isn't just a fashion brand – it's a celebration of womanhood. Our story begins with a
+          simple belief: <em>fashion should be empowering, not intimidating.</em><br><br>
 
+          We design each piece to complement the diverse personalities and lives of Indian women. Whether you're headed
+          to work, a festive gathering, or a casual day out, our handcrafted apparel reflects grace, confidence, and
+          cultural pride.<br><br>
+
+          Founded by women, made for women – Naari is rooted in authenticity, elegance, and impact. Join our journey and
+          wear your story with pride.
+<br>
+<br>
+          <strong> terms and conditions</strong>
+          1. COD not accepted
+          <br>
+          2.sizing :-S, M ,L, XL ,XXL
+          <br>
+          3.processing and delivery :- stitching -2-3 days
+          .delivery-5-6days<Br>
+          4.Orders dm and website
+          <br>
+          5.No cancellation and return ,refund only it its our mistake { wrong size,item,or defect}
+          .you send us a full uncut video of unboxing [no-cuts]
+          <br>
+          6.Refund will be proceed after we receive and check the returned item.
+          <br>
+          <br>
+          contact number 9975291444
+        </p>
+      </div>
+    </section>
     <section id="cart" class="page">
       <h2>Your Cart</h2>
       <div style="text-align: center; margin-top: 20px;">
         <p style="font-size: 1.1rem; color: #444;">Your cart is empty... but your wardrobe doesn't have to be 🛍️</p>
-        <button onclick="showPage('products')" style="margin-top: 20px; padding: 10px 20px; background-color: #b3005e; color: white; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer;">Shop Now</button>
+        <button onclick="showPage('products')"
+          style="margin-top: 20px; padding: 10px 20px; background-color: #b3005e; color: white; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer;">Shop
+          Now</button>
       </div>
     </section>
 
     <section id="login" class="page">
       <h2>Login to Naari</h2>
-      <div style="max-width: 400px; margin: 30px auto; padding: 30px; background: #fff0f5; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <div
+        style="max-width: 400px; margin: 30px auto; padding: 30px; background: #fff0f5; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
         <label>Email</label>
-        <input type="email" placeholder="you@example.com" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px;">
+        <input type="email" placeholder="you@example.com"
+          style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px;">
         <label>Password</label>
-        <input type="password" placeholder="••••••••" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px;">
-        <button style="width: 100%; padding: 12px; background-color: #b3005e; color: white; border: none; border-radius: 6px; font-size: 1rem;">Login</button>
-        <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">Don't have an account? <a href="#" style="color: #b3005e;">Sign up</a></p>
+        <input type="password" placeholder="••••••••"
+          style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px;">
+        <button
+          style="width: 100%; padding: 12px; background-color: #b3005e; color: white; border: none; border-radius: 6px; font-size: 1rem;">Login</button>
+        <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">Don't have an account? <a href="#"
+            style="color: #b3005e;">Sign up</a></p>
       </div>
     </section>
   </main>
@@ -428,33 +491,34 @@
   </footer>
 
   <script>
-  function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-  function toggleMobileMenu() {
-    document.getElementById("mobileNav").classList.toggle("show");
-  }
+    function toggleMobileMenu() {
+      document.getElementById("mobileNav").classList.toggle("show");
+    }
 
-  const track = document.getElementById("carouselTrack");
-  const slides = track.children;
-  let index = 0;
+    const track = document.getElementById("carouselTrack");
+    const slides = track.children;
+    let index = 0;
 
-  function moveSlide(step) {
-    index = (index + step + slides.length) % slides.length;
-    const width = slides[0].clientWidth;
-    track.style.transform = `translateX(-${index * width}px)`;
-  }
+    function moveSlide(step) {
+      index = (index + step + slides.length) % slides.length;
+      const width = slides[0].clientWidth;
+      track.style.transform = `translateX(-${index * width}px)`;
+    }
 
-  window.addEventListener('resize', () => moveSlide(0));
+    window.addEventListener('resize', () => moveSlide(0));
 
-  function scrollProducts(direction) {
-    const slider = document.getElementById("productSlider");
-    const scrollAmount = slider.querySelector(".product-card").offsetWidth + 20;
-    slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-  }
-</script>
+    function scrollProducts(direction) {
+      const slider = document.getElementById("productSlider");
+      const scrollAmount = slider.querySelector(".product-card").offsetWidth + 20;
+      slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+  </script>
 </body>
+
 </html>
